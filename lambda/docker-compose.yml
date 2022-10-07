@@ -1,0 +1,11 @@
+services:
+  lambda:
+    container_name: lambda
+    image: amazon/aws-lambda-nodejs:latest
+    command: 
+      - app.handler
+    ports:
+      - 9000:8080
+    volumes:
+      - ./:/var/task
+    # working_dir: /app

@@ -1,0 +1,16 @@
+services:
+  graph:
+    container_name: graphdb
+    image: neo4j:latest
+    # command: sh -c "yarn install && yarn run dev"
+    ports:
+      - 7474:7474
+      - 7687:7687
+    # working_dir: /app
+    volumes:
+      - ./graphdb/data:/data
+      - ./graphdb/logs:/logs
+      - ./graphdb/import:/var/lib/neo4j/import
+      - ./graphdb/plugins:/plugins
+    environment:
+      NEO4J_AUTH: neo4j/test
